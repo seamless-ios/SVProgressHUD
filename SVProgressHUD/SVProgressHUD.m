@@ -187,7 +187,7 @@
         hudHeight = 80+stringHeight;
         
         if(stringWidth > hudWidth)
-            hudWidth = ceil(stringWidth/2)*2;
+            hudWidth = (CGFloat)ceil(stringWidth/2.0f)*2.0f;
         
         if(hudHeight > 100) {
             labelRect = CGRectMake(12, 66, hudWidth, stringHeight);
@@ -295,7 +295,7 @@
         activeHeight += statusBarFrame.size.height*2;
     
     activeHeight -= keyboardHeight;
-    CGFloat posY = floor(activeHeight*0.45);
+    CGFloat posY = (CGFloat)floor(activeHeight*0.45f);
     CGFloat posX = orientationFrame.size.width/2;
     
     CGPoint newCenter;
@@ -303,15 +303,15 @@
     
     switch (orientation) { 
         case UIInterfaceOrientationPortraitUpsideDown:
-            rotateAngle = M_PI; 
+            rotateAngle = (CGFloat)M_PI;
             newCenter = CGPointMake(posX, orientationFrame.size.height-posY);
             break;
         case UIInterfaceOrientationLandscapeLeft:
-            rotateAngle = -M_PI/2.0f;
+            rotateAngle = (CGFloat)-M_PI/2.0f;
             newCenter = CGPointMake(posY, posX);
             break;
         case UIInterfaceOrientationLandscapeRight:
-            rotateAngle = M_PI/2.0f;
+            rotateAngle = (CGFloat)M_PI/2.0f;
             newCenter = CGPointMake(orientationFrame.size.height-posY, posX);
             break;
         default: // as UIInterfaceOrientationPortrait
